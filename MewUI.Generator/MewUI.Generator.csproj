@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<VersionPrefix>2.0.1</VersionPrefix>
+
+		<!-- Roslyn Source Generator 必需配置 -->
+		<IsRoslynComponent>true</IsRoslynComponent>
+		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+
+		<!-- NuGet 包元数据 -->
+		<Title>MewUI字段生成工具</Title>
+		<AssemblyName>MewUI.Generator</AssemblyName>
+		<Authors>Wenlin(5826985@qq.com)</Authors>
+
+		<!-- NuGet 打包关键配置 -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<IncludeBuildOutput>false</IncludeBuildOutput>
+		<SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+		<DevelopmentDependency>true</DevelopmentDependency>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Using Include="MewUI.Generator" />
+		<Using Include="Microsoft.CodeAnalysis" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.6.0" PrivateAssets="all" />
+	</ItemGroup>
+
+	<!-- 将生成器 DLL 放入 NuGet 包的 analyzers/dotnet/cs 目录 -->
+	<ItemGroup>
+		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+	</ItemGroup>
+
+</Project>
