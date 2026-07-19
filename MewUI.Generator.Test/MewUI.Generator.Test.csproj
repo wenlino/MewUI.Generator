@@ -16,7 +16,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<!-- 生成器作为 analyzer 引用 -->
 		<ProjectReference Include="..\MewUI.Generator\MewUI.Generator.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+		<!-- Runtime 库提供特性定义的运行时实现 -->
+		<ProjectReference Include="..\MewUI.Generator.Runtime\MewUI.Generator.Runtime.csproj" />
 	</ItemGroup>
 
 </Project>

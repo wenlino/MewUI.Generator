@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<LangVersion>latest</LangVersion>
+		<VersionPrefix>2.1.0</VersionPrefix>
+
+		<AssemblyName>MewUI.Generator.Runtime</AssemblyName>
+		<RootNamespace>MewUI.Generator.Runtime</RootNamespace>
+
+		<Title>MewUI.Generator 运行时库</Title>
+		<Authors>Wenlin(5826985@qq.com)</Authors>
+		<Description>MewUI.Generator 的共享运行时基础设施，提供特性定义，确保跨程序集使用同一份类型定义。</Description>
+
+		<!-- NuGet 打包配置 -->
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	</PropertyGroup>
+
+</Project>

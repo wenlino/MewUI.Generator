@@ -1,4 +1,5 @@
-<Solution>
+﻿<Solution>
+  <Project Path="MewUI.Generator.Runtime/MewUI.Generator.Runtime.csproj" />
   <Project Path="MewUI.Generator.Test/MewUI.Generator.Test.csproj" />
   <Project Path="MewUI.Generator/MewUI.Generator.csproj" Id="4c84fbc8-0842-4402-a373-639d20d7091c" />
 </Solution>
