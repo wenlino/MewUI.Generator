@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
-		<VersionPrefix>2.0.1</VersionPrefix>
+		<VersionPrefix>2.0.2</VersionPrefix>
 
 		<!-- Roslyn Source Generator 必需配置 -->
 		<IsRoslynComponent>true</IsRoslynComponent>
@@ -19,7 +19,6 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
 		<SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
-		<DevelopmentDependency>true</DevelopmentDependency>
 	</PropertyGroup>
 
 	<ItemGroup>
