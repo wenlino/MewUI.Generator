@@ -4,7 +4,7 @@
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<LangVersion>latest</LangVersion>
-		<VersionPrefix>2.1.0</VersionPrefix>
+		<VersionPrefix>2.2.0</VersionPrefix>
 
 		<AssemblyName>MewUI.Generator.Runtime</AssemblyName>
 		<RootNamespace>MewUI.Generator.Runtime</RootNamespace>

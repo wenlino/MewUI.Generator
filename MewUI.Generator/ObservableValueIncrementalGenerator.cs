@@ -34,7 +34,7 @@ public sealed class ObservableValueIncrementalGenerator : IIncrementalGenerator
     {
         // 1. 统一收集所有需要生成的 (类型符号, 是否由类级别触发)
         var provider = context.SyntaxProvider.ForAttributeWithMetadataName(
-            "System.AsObservableValueAttribute",
+            "MewUI.Generator.Runtime.AsObservableValueAttribute",
             predicate: static (node, _) => node is ClassDeclarationSyntax or PropertyDeclarationSyntax,
             transform: static (ctx, ct) =>
             {

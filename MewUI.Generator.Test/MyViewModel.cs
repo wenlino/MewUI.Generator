@@ -1,4 +1,5 @@
 using Aprillz.MewUI.Controls;
+using MewUI.Generator.Runtime;
 
 namespace SampleApp;
 
@@ -47,7 +48,7 @@ public partial class MewPropertyModel : FrameworkElement
     /// <summary>
     /// 值
     /// </summary>
-    [AsMewProperty(DefaultValue = 50, MewPropertyOptions = Aprillz.MewUI.MewPropertyOptions.BindsTwoWayByDefault)]
+    [AsMewProperty(DefaultValue = 50, MewPropertyOptions = MewPropertyOptions.BindsTwoWayByDefault)]
     public partial int IntTest { get; set; }
 
     [AsMewProperty]

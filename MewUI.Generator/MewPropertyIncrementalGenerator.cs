@@ -17,7 +17,7 @@ public sealed class MewPropertyIncrementalGenerator : IIncrementalGenerator
 
         // 1. 直接收集，不做 Where/Select 链式调用以避免元组字段名丢失
         var properties = context.SyntaxProvider.ForAttributeWithMetadataName(
-            "System.AsMewPropertyAttribute",
+            "MewUI.Generator.Runtime.AsMewPropertyAttribute",
             predicate: static (node, _) => node is PropertyDeclarationSyntax,
             transform: static (ctx, ct) => ExtractAndGenerate(ctx, ct))
             .Collect(); // 直接收集 Nullable 元组数组
@@ -88,9 +88,20 @@ public sealed class MewPropertyIncrementalGenerator : IIncrementalGenerator
             : defaultValueArg.ToCSharpString();
 
         var mewPropertyOptionsArg = attr.GetArgumentValue("MewPropertyOptions");
-        string mewPropertyOptions = mewPropertyOptionsArg.IsNull
-            ? "global::Aprillz.MewUI.MewPropertyOptions.AffectsRender"
-            : mewPropertyOptionsArg.ToCSharpString();
+        string mewPropertyOptions;
+        if (mewPropertyOptionsArg.IsNull)
+        {
+            mewPropertyOptions = "global::Aprillz.MewUI.MewPropertyOptions.AffectsRender";
+        }
+        else
+        {
+            // 本地枚举 MewUI.Generator.Runtime.MewPropertyOptions 一对一匹配
+            // 转换为真实的 Aprillz.MewUI.MewPropertyOptions 枚举值
+            var raw = mewPropertyOptionsArg.ToCSharpString();
+            mewPropertyOptions = raw
+                .Replace("global::MewUI.Generator.Runtime.MewPropertyOptions.", "global::Aprillz.MewUI.MewPropertyOptions.")
+                .Replace("MewUI.Generator.Runtime.MewPropertyOptions.", "global::Aprillz.MewUI.MewPropertyOptions.");
+        }
 
         string typeName = prop.Type.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat
             .WithMiscellaneousOptions(SymbolDisplayMiscellaneousOptions.IncludeNullableReferenceTypeModifier));
